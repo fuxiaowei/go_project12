@@ -56,10 +56,10 @@ func main() {
 	cond.L = new(sync.Mutex) // 互斥锁 初值 0 ， 未加锁状态
 
 	for i := 0; i < 5; i++ {
-		go producer08(product, i+1) // 1 生产者
+		go producer08(product, i+1) // 5 生产者
 	}
 	for i := 0; i < 5; i++ {
-		go consumer08(product, i+1) // 3 个消费者
+		go consumer08(product, i+1) // 5 个消费者
 	}
 	/*	for {
 		runtime.GC()

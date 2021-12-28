@@ -31,6 +31,8 @@ func writeGo05(idx int) {
 		rwMutex.Unlock()
 	}
 }
+
+//读时共享，写时独占，读写同时出现时写锁优先级比读锁高
 func main() {
 	// 播种随机数种子
 	rand.Seed(time.Now().UnixNano())

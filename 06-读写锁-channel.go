@@ -23,6 +23,8 @@ func writeGo06(out chan<- int, idx int) {
 		time.Sleep(time.Millisecond * 300) // 放大实验现象
 	}
 }
+
+//channel只能顺序读，不能共享读
 func main() {
 	// 播种随机数种子
 	rand.Seed(time.Now().UnixNano())

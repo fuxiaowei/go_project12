@@ -30,6 +30,10 @@ func writeGo(out chan<- int, idx int) {
 	}
 }
 
+/**
+注意：尽量不要将互斥锁、读写锁和channel混用，否则会出现隐形死锁
+*/
+
 func main() {
 	// 播种随机数种子
 	rand.Seed(time.Now().UnixNano())

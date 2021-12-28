@@ -3,7 +3,7 @@ package main
 // 死锁1
 /*func main()  {
 	ch :=make(chan int)
-	ch <- 789
+	ch <- 789 //当执行到这一行会等待数据被消费从而进入阻塞状态
 	num := <-ch
 	fmt.Println("num = ", num)
 }*/

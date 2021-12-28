@@ -21,15 +21,16 @@ func consumer(in <-chan int, idx int) {
 	}
 }
 
+//问题：channel生产者和消费者并没有体现出FIFO的原则，原因在于取出数据要打印的时候发生了cpu切换
 func main() {
 	product := make(chan int)
 	rand.Seed(time.Now().UnixNano())
 
 	for i := 0; i < 5; i++ {
-		go producer(product, i+1) // 1 生产者
+		go producer(product, i+1) // 5 生产者
 	}
 	for i := 0; i < 5; i++ {
-		go consumer(product, i+1) // 3 个消费者
+		go consumer(product, i+1) // 5 个消费者
 	}
 	for {
 
